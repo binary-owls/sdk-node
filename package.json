@@ -1,0 +1,24 @@
+{
+  "name": "@binary-owls/sdk-node",
+  "version": "1.0.0",
+  "description": "JavaScript helpers with TypeScript",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "yarn test",
+    "build": "rimraf lib/ && tsc",
+    "prepub": "yarn build",
+    "pub": "yarn publish --access public",
+    "postpub": "echo 'Publish succeed, but YOU MUST NOW COMMIT CHANGES!'",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {}
+}
