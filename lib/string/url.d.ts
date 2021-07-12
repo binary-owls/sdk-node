@@ -1,4 +1,3 @@
-/// <reference types="node" />
-import querystring from 'querystring';
-export declare const parseUrlQuery: (str: string) => querystring.ParsedUrlQuery;
-export declare const formatUrlQuery: (params: querystring.ParsedUrlQueryInput) => string;
+import { ParsedUrlQuery, ParsedUrlQueryInput } from 'querystring';
+export declare const parseUrlQuery: (str: string) => ParsedUrlQuery;
+export declare const formatUrlQuery: (params: ParsedUrlQueryInput) => string;
