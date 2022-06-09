@@ -24,10 +24,19 @@ To locally develop the package, install Yalc:
 yarn global add yalc
 ```
 
+## Maintain: Unit Tests
 
-### Maintain - test locally
+First, it's easiest to use the Jetbrains Debugger to run individual unit tests.
 
-Then we can publish this package locally: 
+But you can also test via CLI:
+
+```sh
+yarn test
+```
+
+### Maintain: Try Locally
+
+Then we can publish this package locally:
 
 ```shell script
 cd sdk-node
@@ -35,6 +44,7 @@ yalc publish
 ```
 
 In the implementing project:
+
 ```shell script
 yalc add @binary-owls/sdk-node
 ```
