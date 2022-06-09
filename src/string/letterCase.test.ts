@@ -77,6 +77,10 @@ describe('letter cases', () => {
       expect(snakeToCamel('capitalHillRoad')).toBe('capitalhillroad')
     })
 
+    it(`input is has other "cases"`, () => {
+      expect(snakeToCamel('Capital_HillRoad')).toBe('capitalHillroad')
+    })
+
     it('input is all lower_case', () => {
       expect(snakeToCamel('capital_hill_road')).toBe('capitalHillRoad')
     })
@@ -101,6 +105,10 @@ describe('letter cases', () => {
   describe('convert camelCase to snake_case', () => {
     it('input is already snake_case', () => {
       expect(camelToSnake('capital_hill_road')).toBe('capital_hill_road')
+    })
+
+    it(`input is has other "cases"`, () => {
+      expect(camelToSnake('capital_hillRoad')).toBe('capital_hill_road')
     })
 
     it(`is an acronym`, () => {
