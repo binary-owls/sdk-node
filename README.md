@@ -49,7 +49,6 @@ yalc add @binary-owls/sdk-node
 
 # NOTE the built files is the main publication, not the TS source
 yarn build
-git add --all
 
 # Using npmjs.org credentials
 npm login
@@ -57,6 +56,11 @@ npm login
 # 1. Edit version in package.json
 # 2. Run publish
 yarn pub
+
+# You will be prompted for the new semver.  
+# Then if publication is successful, package.json will automatically have its `"version"` updated
+git add --all
+git commit
 ```
 
 Optional:

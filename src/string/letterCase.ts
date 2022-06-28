@@ -64,6 +64,10 @@ export function camelToSnake(str: string) {
 
 // Discussion about camelCase for acronyms/abbreviations https://stackoverflow.com/questions/15526107/acronyms-in-camelcase
 export function snakeToCamel(str: string) {
+  if (!str.includes('_')) {
+    return str
+  }
+
   const tokens = str
     .split('_')
     .map((token, i) => {

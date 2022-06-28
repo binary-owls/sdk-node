@@ -73,8 +73,8 @@ describe('letter cases', () => {
   })
 
   describe('convert snake_case to camelCase', () => {
-    it('input is already camelCase', () => {
-      expect(snakeToCamel('capitalHillRoad')).toBe('capitalhillroad')
+    it('input has no underscores', () => {
+      expect(snakeToCamel('capitalHillRoad')).toBe('capitalHillRoad')
     })
 
     it(`input is has other "cases"`, () => {
