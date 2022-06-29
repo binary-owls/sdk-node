@@ -1,4 +1,4 @@
-import { camelToSnake, isLowerCaseLetter, isUpperCaseLetter, snakeToCamel } from './letterCase'
+import { toSnakeCase, isLowerCaseLetter, isUpperCaseLetter } from './letterCase'
 
 describe('letter cases', () => {
 
@@ -72,63 +72,70 @@ describe('letter cases', () => {
     })
   })
 
-  describe('convert snake_case to camelCase', () => {
-    it('input has no underscores', () => {
-      expect(snakeToCamel('capitalHillRoad')).toBe('capitalHillRoad')
-    })
-
-    it(`input is has other "cases"`, () => {
-      expect(snakeToCamel('Capital_HillRoad')).toBe('capitalHillroad')
-    })
-
-    it('input is all lower_case', () => {
-      expect(snakeToCamel('capital_hill_road')).toBe('capitalHillRoad')
-    })
-
-    it('input has PascalCase mixed with snake_case', () => {
-      expect(snakeToCamel('Capital_Hill_Road')).toBe('capitalHillRoad')
-    })
-
-    it('input has mixed cases', () => {
-      expect(snakeToCamel('cAPITal_hIlL_RoAd')).toBe('capitalHillRoad')
-    })
-
-    it('input is ALL_CAPS', () => {
-      expect(snakeToCamel('CAPITAL_HILL_ROAD')).toBe('capitalHillRoad')
-    })
-
-    it('input has first word in ALL_CAPS', () => {
-      expect(snakeToCamel('CAPITAL_hill_road')).toBe('capitalHillRoad')
-    })
-  })
-
-  describe('convert camelCase to snake_case', () => {
+  describe('toSnakeCase()', () => {
     it('input is already snake_case', () => {
-      expect(camelToSnake('capital_hill_road')).toBe('capital_hill_road')
+      expect(toSnakeCase('capital_hill_road')).toBe('capital_hill_road')
+    })
+
+    it(`numbers do not add extra _underscore_ (unlike lodash/snakeCase)`, () => {
+      expect(toSnakeCase('ipv4Address')).toBe('ipv4_address')
+      expect(toSnakeCase('k8sClusterId')).toBe('k8s_cluster_id')
+    })
+
+    it('input with random punctuation', () => {
+      expect(toSnakeCase('k8s!_@*()cluster_!_ID')).toBe('k8s_cluster_id')
+    })
+
+    it('punctuation at beginning/end', () => {
+      expect(toSnakeCase('!!!ipv4Address((*))')).toBe('_ipv4_address_')
+    })
+
+    it('acronyms', () => {
+      expect(toSnakeCase('LOREMIpsum')).toBe('lorem_ipsum')
+    })
+
+    it('length of 2', () => {
+      expect(toSnakeCase('aK')).toBe('a_k')
+      expect(toSnakeCase('Ak')).toBe('ak')
+      expect(toSnakeCase('AK')).toBe('ak')
+      expect(toSnakeCase('ak')).toBe('ak')
     })
 
     it(`input is has other "cases"`, () => {
-      expect(camelToSnake('capital_hillRoad')).toBe('capital_hill_road')
+      expect(toSnakeCase('capital_hillRoad')).toBe('capital_hill_road')
     })
 
     it(`is an acronym`, () => {
-      expect(camelToSnake('capitalHILLRoad')).toBe('capital_hill_road')
+      expect(toSnakeCase('capitalHILLRoad')).toBe('capital_hill_road')
     })
 
     it('input is PascalCase', () => {
-      expect(camelToSnake('CapitalHillRoad')).toBe('capital_hill_road')
+      expect(toSnakeCase('CapitalHillRoad')).toBe('capital_hill_road')
     })
 
     it('input has number after UPPER_CASE', () => {
-      expect(camelToSnake('myI8nName')).toBe('my_i8n_name')
+      expect(toSnakeCase('myI8nName')).toBe('my_i8n_name')
     })
 
     it('input has number before lower_case letter', () => {
-      expect(camelToSnake('i8nName')).toBe('i8n_name')
+      expect(toSnakeCase('i8nName')).toBe('i8n_name')
     })
 
     it('input has number before UPPER_CASE letter', () => {
-      expect(camelToSnake('web3Name')).toBe('web3_name')
+      expect(toSnakeCase('web3Name')).toBe('web3_name')
+    })
+
+    it('punctuation mixed with UPPER_CASE letters', () => {
+      expect(toSnakeCase('K8S__Cluster')).toBe('k8s_cluster')
+    })
+
+    it('preceding characters are not alphabetical', () => {
+      expect(toSnakeCase('32__Ipv4')).toBe('32_ipv4')
+    })
+
+    it('preceding characters are not letters', () => {
+      expect(toSnakeCase('32IPV4')).toBe('32ipv4')
+      expect(toSnakeCase('32ipv4')).toBe('32ipv4')
     })
   })
 
