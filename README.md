@@ -47,11 +47,11 @@ yalc add @binary-owls/sdk-node
 
 ```shell script
 
+# Log in to npmjs.org
+npm login
+
 # NOTE the built files is the main publication, not the TS source
 yarn build
-
-# Using npmjs.org credentials
-npm login
 
 # 1. Edit version in package.json
 # 2. Run publish

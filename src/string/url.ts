@@ -11,3 +11,8 @@ export const parseUrlQuery = (str: string): ParsedUrlQuery => {
 }
 
 export const formatUrlQuery = (params: ParsedUrlQueryInput) => querystring.stringify(params)
+
+export const isUnsafeUrl = (str: string) => {
+  const isValidUrlString = /^([!#$&-;=?-\[\]_a-z~]|%[0-9a-fA-F]{2})+$/.test(str)
+  return !isValidUrlString
+}
