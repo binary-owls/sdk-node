@@ -55,7 +55,8 @@ yarn build
 
 # 1. Edit version in package.json
 # 2. Run publish
-yarn pub
+# NOTE: yarn publish has issues with auto-committing, and running `npm publish` as a yarn command also has issues, so we need to just run this raw:
+npm publish --access public
 
 # You will be prompted for the new semver.  
 # Then if publication is successful, package.json will automatically have its `"version"` updated

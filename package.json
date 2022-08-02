@@ -8,8 +8,6 @@
   "scripts": {
     "prebuild": "yarn test",
     "build": "rimraf lib/ && tsc",
-    "prepub": "yarn build",
-    "pub": "yarn publish --access public",
     "postpub": "echo 'Publish succeed, but YOU MUST NOW COMMIT CHANGES!'",
     "test": "jest"
   },
