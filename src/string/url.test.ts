@@ -1,4 +1,4 @@
-import { formatUrlQuery, isUnsafeUrl, parseUrlQuery } from './url'
+import { formatUrlQuery, isUnsafeUrl, parseUrlQuery, urlify } from './url'
 
 describe('formatUrlQuery()', () => {
   it('formats normal object', () => {
@@ -26,6 +26,13 @@ describe('parseUrlQuery()', () => {
       a: '1',
       b: 'c',
     })
+  })
+})
+
+
+describe('urlify()', () => {
+  it('converts to URL', () => {
+    expect(urlify(`Good(#&* Geniuses   \t Team 20`)).toEqual('good-geniuses-team-20')
   })
 })
 
