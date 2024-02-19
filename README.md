@@ -5,7 +5,7 @@ Useful for any backend or frontend JavaScript or TypeScript project.
 ## Usage
 
 ```shell script
-yarn add @binary-owls/sdk-node
+pnpm install @binary-owls/sdk-node
 ```
 
 
@@ -18,7 +18,7 @@ First, it's easiest to use the Jetbrains Debugger to run individual unit tests.
 But you can also test via CLI:
 
 ```sh
-yarn test
+pnpn test
 ```
 
 ### Maintain: Try Locally
@@ -51,7 +51,7 @@ yalc add @binary-owls/sdk-node
 npm login
 
 # NOTE the built files is the main publication, not the TS source
-yarn build
+pnpm build
 
 # 1. Edit version in package.json
 # 2. Run publish
