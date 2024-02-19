@@ -21,27 +21,6 @@ But you can also test via CLI:
 pnpn test
 ```
 
-### Maintain: Try Locally
-
-To locally develop the package, install Yalc:
-
-```shell script
-yarn global add yalc
-```
-
-Then we can publish this package locally:
-
-```shell script
-cd sdk-node
-yalc publish
-```
-
-In the implementing project:
-
-```shell script
-yalc add @binary-owls/sdk-node
-```
-
 
 ## Publish to NPM
 
