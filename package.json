@@ -13,10 +13,10 @@
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
+    "@types/node": "^20.11.19",
     "jest": "^26.0.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.0.0",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {}
+  }
 }
