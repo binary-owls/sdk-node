@@ -6,7 +6,7 @@ export interface IndexedNameOptions {
   name: string
 }
 
-export const generateIndexedName = ({ existing = [], name }: IndexedNameOptions) => {
+export const randomizeIndexedName = ({ existing = [], name }: IndexedNameOptions) => {
   if (!existing.includes(name)) {
     return name
   }

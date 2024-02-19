@@ -7,7 +7,7 @@
  *
  * @param length
  */
-export function generateRandomString(length: number): string {
+export function randomizeAlphanumericString(length: number): string {
 
   if (length < 1) {
     throw new Error('Length must be at least 1')
