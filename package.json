@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "prebuild": "yarn test",
+    "prebuild": "pnpm test",
     "build": "rimraf lib/ && tsc",
     "postpub": "echo 'Publish succeed, but YOU MUST NOW COMMIT CHANGES!'",
     "test": "jest"
@@ -17,6 +17,6 @@
     "jest": "^26.0.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.0.0",
-    "typescript": "^3.8.3"
+    "typescript": "^5.3.3"
   }
 }
