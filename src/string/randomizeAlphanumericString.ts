@@ -5,6 +5,13 @@
  *
  * It can have all alphabets but not all numbers, i.e. the first char is always a letter
  *
+ * Possibility estimates by AI:
+ * length 2 permutes 260
+ * length 3 permutes 9360
+ * length 4 permutes 269360
+ * length 8 permutes 3391814799360
+ * length 9 permutes 88213184783360
+ *
  * @param length
  */
 export function randomizeAlphanumericString(length: number): string {
